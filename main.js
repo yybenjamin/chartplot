@@ -10,22 +10,22 @@ d3.select("body")
   .append("h3")
   .text(title);
 
-d3.select("body")
-  .selectAll("div")
-  .data(data)
-  .enter()
-  .append("div")
-  .style("width", function(d) { return d.amount * 40 + "px"; })
-  .style("height", "15px");
+// d3.select("body")
+//   .selectAll("div")
+//   .data(data)
+//   .enter()
+//   .append("div")
+//   .style("width", function(d) { return d.price + "px"; })
+//   .style("height", "15px");
 
 
-d3.csv('https://s3-ap-northeast-1.amazonaws.com/www.yyben.tw/prices.csv', d3.autoType).then(function (data) {
+d3.csv('https://raw.githubusercontent.com/yybenjamin/chartplot/master/prices.csv', d3.autoType).then(function (data) {
   d3.select("body")
     .selectAll("div")
     .data(data)
     .enter()
     .append("div")
-    .style("width", function(d) { return d.amount * 40 + "px"; })
+    .style("width", function(d) { return d.price + "px"; })
     .style("height", "15px");
 
   console.log(data)
