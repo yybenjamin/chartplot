@@ -19,16 +19,26 @@ d3.select("body")
 //   .style("height", "15px");
 
 
-d3.csv('https://raw.githubusercontent.com/yybenjamin/chartplot/master/prices.csv', d3.autoType).then(function (data) {
+d3.csv('https://raw.githubusercontent.com/yybenjamin/chartplot/master/path.csv', d3.autoType)
+.then(function (data) {
+
+
+
+
   d3.select("body")
     .selectAll("div")
     .data(data)
     .enter()
     .append("div")
-    .style("width", function(d) { return d.price + "px"; })
+    .style("width", function(d) { return d.t*2 + "px"; })
     .style("height", "15px");
 
   console.log(data)
+
+
+
+
+  
 });
 
 //https://raw.githubusercontent.com/sdaityari/my_git_project/master/posts.csv
