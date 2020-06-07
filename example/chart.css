@@ -1,0 +1,55 @@
+.axis text {
+	fill: dimgray;/* text of item1 and item2 except 't=xxx'*/
+	font: 18px sans-serif;
+}
+
+.axis path {
+  fill: none;
+  stroke: #E8E8E8;
+  stroke-width: 2.5px;
+  shape-rendering: crispEdges;
+}
+
+/*.axis path {
+  fill: red;
+  opacity: 0.3;
+  stroke: #E8E8E8;
+  stroke-width: 2.5px;
+  shape-rendering: crispEdges;
+}*/
+
+.axis line {
+  fill: none;
+  stroke:#E8E8E8;
+  stroke-width: 1.6px;
+}
+
+.axis .minor {
+  stroke: red;
+  stroke-width: 0.6px;
+}
+.overlay {
+	fill: none;
+	pointer-events: all;
+}
+.tmark {
+	fill: blue; /*time mark*/
+
+
+}
+
+.tmark-text{
+  fill: black; /*text of time mark*/
+  font: 12px sans-serif;
+}
+
+.guidance{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+}
+.annotation{
+  font: 34px/36px sans-serif; /*Item 0: Instruction*/
+  fill: green;
+}
