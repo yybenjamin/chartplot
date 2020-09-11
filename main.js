@@ -32,14 +32,14 @@ var svg = d3.select("#my_dataviz")
 //   // console.log(data)
 // });
 
-
-
-fileInput='https://raw.githubusercontent.com/yybenjamin/chartplot/master/path.csv';
+//https://raw.githubusercontent.com/yybenjamin/chartplot/master/path.csv
+//https://raw.githubusercontent.com/yybenjamin/chartplot/master/exp-data.csv
+fileInput='https://raw.githubusercontent.com/yybenjamin/chartplot/master/exp-data.csv';
 d3.csv(fileInput).then(function(data) {
   		data.forEach(function(d) {
 		    //pathData.push({'t':d.t,'frame':d.frame,'x':d.x,'y':d.y,'z':d.z,'theta':d.theta})//{sn:,title:,src:}
 		    var est_theta=90*(1-(parseFloat(d.z)-675.5)/(1135-675.5));
-		    if (parseFloat(d.z)>1135)
+		    if (parseFloat(d.z)>1135 || parseFloat(d.t)<100)
 		    {
 		    	est_theta=0;
 		    }
@@ -62,8 +62,11 @@ function plot(){
 	//   .attr("transform", "translate(0," + height + ")")
 	//   .call(d3.axisBottom(x));
 
+	// var x_1 = d3.scaleLinear()
+	//   .domain(d3.extent(pathData, function(d,i) {  return d.t; }))
+	//   .range([ 0, width ]);
 	var x_1 = d3.scaleLinear()
-	  .domain(d3.extent(pathData, function(d,i) {  return d.t; }))
+	  .domain([0,190])
 	  .range([ 0, width ]);
 	axis_x=svg.append("g")
 	  .attr("transform", "translate(0," + height + ")")
@@ -192,16 +195,52 @@ function plot(){
 	    )
 
 	svg.append("line")
-	.attr("x1", x_1(116))  //<<== change your code here
+	.attr("x1", x_1(116.77))  //<<== change your code here
 	.attr("y1", 0)
-	.attr("x2", x_1(116))  //<<== and here
+	.attr("x2", x_1(116.77))  //<<== and here
 	.attr("y2", height+50  )
 	.style("stroke-width", 1)
 	.style("stroke-dasharray", "5 5")
 	.style("stroke", "red")
 	.style("fill", "none");
 
+	svg.append("line")
+	.attr("x1", x_1(14.87))  //<<== change your code here
+	.attr("y1", 0)
+	.attr("x2", x_1(14.87))  //<<== and here
+	.attr("y2", height+50  )
+	.style("stroke-width", 1)
+	.style("stroke-dasharray", "5 5")
+	.style("stroke", "red")
+	.style("fill", "none");
 
+	svg.append("line")
+	.attr("x1", x_1(47.9))  //<<== change your code here
+	.attr("y1", 0)
+	.attr("x2", x_1(47.9))  //<<== and here
+	.attr("y2", height+50  )
+	.style("stroke-width", 1)
+	.style("stroke-dasharray", "5 5")
+	.style("stroke", "red")
+	.style("fill", "none");
 
+	svg.append("line")
+	.attr("x1", x_1(94.07))  //<<== change your code here
+	.attr("y1", 0)
+	.attr("x2", x_1(94.07))  //<<== and here
+	.attr("y2", height+50  )
+	.style("stroke-width", 1)
+	.style("stroke-dasharray", "5 5")
+	.style("stroke", "red")
+	.style("fill", "none");
 
+	svg.append("line")
+	.attr("x1", x_1(176.47))  //<<== change your code here
+	.attr("y1", 0)
+	.attr("x2", x_1(176.47))  //<<== and here
+	.attr("y2", height+50  )
+	.style("stroke-width", 1)
+	.style("stroke-dasharray", "5 5")
+	.style("stroke", "red")
+	.style("fill", "none");
 }
